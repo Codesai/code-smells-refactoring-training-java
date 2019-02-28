@@ -6,4 +6,4 @@ We'll use an architectural style called [hexagonal architecture or ports and ada
 
 To practice we'll do [Matteo Vaccari](http://matteo.vaccari.name/blog/)'s Birthday Greetings Refactoring Kata.
 
-To learn more about this great kata, read Matteo's post about it on its blog: [The birthday greetings kata](http://matteo.vaccari.name/blog/archives/154). That post also constains a great explanation of the hexagonal architecture.
+To learn more about this great kata, read Matteo's post about it on its blog: [The birthday greetings kata](http://matteo.vaccari.name/blog/archives/154). That post also contains a great explanation of the hexagonal architecture.
