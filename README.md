@@ -1,8 +1,8 @@
 # Refactoring Katas
 
-### 1. [Refactoring a smelly Mars Rover's code](https://github.com/trikitrok/code-smells-refactoring-course-java/tree/master/01-smelly-mars-rover-refactoring)
+### 1. [Refactoring a smelly Mars Rover's code](https://github.com/trikitrok/code-smells-refactoring-course-java/tree/master/01-refactoring-smelly-mars-rover)
 
-### 2. [Refactoring classic Video Store Example](https://github.com/trikitrok/code-smells-refactoring-course-java/tree/master/02-video-store)
+### 2. [Refactoring classic Video Store Example](https://github.com/trikitrok/code-smells-refactoring-course-java/tree/master/02-refactoring-video-store)
 
 ### 3. [Refactoring to Hexagonal Architecture 1](https://github.com/trikitrok/code-smells-refactoring-course-java/tree/master/03-refactoring-to-hexagonal-architecture)
 
