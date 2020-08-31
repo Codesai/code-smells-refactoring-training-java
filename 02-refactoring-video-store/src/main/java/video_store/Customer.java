@@ -28,15 +28,15 @@ public class Customer {
 
             // determines the amount for each line
             switch (each.getMovie().getPriceCode()) {
-                case Movie.REGULAR:
+                case each.getMovie().getREGULAR():
                     thisAmount += 2;
                     if (each.getDaysRented() > 2)
                         thisAmount += (each.getDaysRented() - 2) * 1.5;
                     break;
-                case Movie.NEW_RELEASE:
+                case each.getMovie().getNEW_RELEASE():
                     thisAmount += each.getDaysRented() * 3;
                     break;
-                case Movie.CHILDRENS:
+                case each.getMovie().getCHILDRENS():
                     thisAmount += 1.5;
                     if (each.getDaysRented() > 3)
                         thisAmount += (each.getDaysRented() - 3) * 1.5;

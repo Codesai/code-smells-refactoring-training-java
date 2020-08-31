@@ -15,8 +15,7 @@ import javax.mail.internet.MimeMessage;
 
 public class BirthdayService {
 
-    public void sendGreetings(String fileName, OurDate ourDate,
-            String smtpHost, int smtpPort) throws IOException, ParseException,
+    public void sendGreetings(String fileName, OurDate ourDate, String smtpHost, int smtpPort) throws IOException, ParseException,
             AddressException, MessagingException {
         BufferedReader in = new BufferedReader(new FileReader(fileName));
         String str = "";
@@ -26,19 +25,17 @@ public class BirthdayService {
             Employee employee = new Employee(employeeData[1], employeeData[0],
                     employeeData[2], employeeData[3]);
             if (employee.isBirthday(ourDate)) {
-                String recipient = employee.getEmail();
-                String body = "Happy Birthday, dear %NAME%!".replace("%NAME%",
-                        employee.getFirstName());
-                String subject = "Happy Birthday!";
-                sendMessage(smtpHost, smtpPort, "sender@here.com", subject,
-                        body, recipient);
+                sendMessage(smtpHost, smtpPort, employee);
             }
         }
     }
 
-    private void sendMessage(String smtpHost, int smtpPort, String sender,
-            String subject, String body, String recipient)
+    private void sendMessage(String smtpHost, int smtpPort, Employee employee)
             throws AddressException, MessagingException {
+        String sender = "sender@here.com";
+        String subject = "Happy Birthday!";
+        String recipient = employee.getEmail();
+        String body = "Happy Birthday, dear %NAME%!".replace("%NAME%", employee.getFirstName());
         // Create a mail session
         java.util.Properties props = new java.util.Properties();
         props.put("mail.smtp.host", smtpHost);

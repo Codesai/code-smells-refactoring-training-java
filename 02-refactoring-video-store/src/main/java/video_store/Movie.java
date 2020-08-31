@@ -1,9 +1,9 @@
 package video_store;
 
 public class Movie {
-    public static final int CHILDRENS = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
+    private static final int CHILDRENS = 2;
+    private static final int REGULAR = 0;
+    private static final int NEW_RELEASE = 1;
 
     private String title;
     private int priceCode;
@@ -25,4 +25,17 @@ public class Movie {
         return title;
     }
 
+    public static int getCHILDRENS() {
+        return CHILDRENS;
+    }
+
+    public static int getREGULAR() {
+        return REGULAR;
+    }
+
+    public static int getNEW_RELEASE() {
+        return NEW_RELEASE;
+    }
+
+    
 }
