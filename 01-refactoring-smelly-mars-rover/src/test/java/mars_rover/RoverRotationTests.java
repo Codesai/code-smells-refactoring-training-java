@@ -1,9 +1,8 @@
 package mars_rover;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import mars_rover.Rover;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RoverRotationTests {
     @Test

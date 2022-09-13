@@ -3,15 +3,15 @@ package test.birthdaygreetings.application;
 import birthdaygreetings.application.BirthdayService;
 import birthdaygreetings.core.OurDate;
 import birthdaygreetings.infrastructure.repositories.FileEmployeesRepository;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static test.birthdaygreetings.helpers.OurDateFactory.ourDateFromString;
 
 public class BirthdayServiceAcceptanceTest {
@@ -23,7 +23,7 @@ public class BirthdayServiceAcceptanceTest {
     private BirthdayService service;
     private static final String EMPLOYEES_FILE_PATH = "src/test/resources/employee_data.txt";
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         messagesSent = new ArrayList<>();
 
@@ -41,7 +41,7 @@ public class BirthdayServiceAcceptanceTest {
 
         service.sendGreetings(today, SMTP_HOST, SMTP_PORT, FROM);
 
-        assertEquals("message not sent?", 1, messagesSent.size());
+        assertEquals(1, messagesSent.size(), "message not sent?");
         Message message = messagesSent.get(0);
         assertEquals("Happy Birthday, dear John!", message.getContent());
         assertEquals("Happy Birthday!", message.getSubject());

@@ -9,10 +9,10 @@ import javax.mail.MessagingException;
 import birthdaygreetings.BirthdayService;
 import birthdaygreetings.OurDate;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AcceptanceTest {
 
@@ -20,7 +20,7 @@ public class AcceptanceTest {
     private List<Message> messagesSent;
     private BirthdayService service;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         messagesSent = new ArrayList<Message>();
 
@@ -38,7 +38,7 @@ public class AcceptanceTest {
         service.sendGreetings("src/test/resources/employee_data.txt",
                 new OurDate("2008/10/08"), "localhost", SMTP_PORT);
 
-        assertEquals("message not sent?", 1, messagesSent.size());
+        assertEquals(1, messagesSent.size(), "message not sent?");
         Message message = messagesSent.get(0);
         assertEquals("Happy Birthday, dear John!", message.getContent());
         assertEquals("Happy Birthday!", message.getSubject());
@@ -52,6 +52,6 @@ public class AcceptanceTest {
         service.sendGreetings("src/test/resources/employee_data.txt",
                 new OurDate("2008/01/01"), "localhost", SMTP_PORT);
 
-        assertEquals("what? messages?", 0, messagesSent.size());
+        assertEquals(0, messagesSent.size(), "what? messages?");
     }
 }

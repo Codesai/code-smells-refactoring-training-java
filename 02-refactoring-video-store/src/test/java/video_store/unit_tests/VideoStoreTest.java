@@ -1,7 +1,7 @@
 package video_store.unit_tests;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import video_store.Customer;
 import video_store.Movie;
 import video_store.Rental;
@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.is;
 public class VideoStoreTest {
     private Customer customer;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         customer = new Customer("Fred");
     }

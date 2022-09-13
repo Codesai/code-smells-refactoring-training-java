@@ -1,10 +1,9 @@
 package test.birthdaygreetings.core;
 
 import birthdaygreetings.core.Employee;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static test.birthdaygreetings.helpers.OurDateFactory.ourDateFromString;
 
 public class EmployeeTest {
@@ -13,8 +12,8 @@ public class EmployeeTest {
     public void testBirthday() throws Exception {
         Employee employee = new Employee("foo", "bar", ourDateFromString("1990/01/31"), "a@b.c");
 
-        assertFalse("no birthday", employee.isBirthday(ourDateFromString("2008/01/30")));
+        assertFalse(employee.isBirthday(ourDateFromString("2008/01/30")), "no birthday");
 
-        assertTrue("birthday", employee.isBirthday(ourDateFromString("2008/01/31")));
+        assertTrue(employee.isBirthday(ourDateFromString("2008/01/31")), "birthday");
     }
 }
