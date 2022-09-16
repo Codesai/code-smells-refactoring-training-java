@@ -12,8 +12,8 @@ public class RoverEqualityTests {
 
     @Test
     public void notEqualRovers() {
-        assertFalse(new Rover(1, 1, "N").equals(new Rover(1, 1, "S")));
-        assertFalse(new Rover(1, 1, "N").equals(new Rover(1, 2, "N")));
-        assertFalse(new Rover(1, 1, "N").equals(new Rover(0, 1, "N")));
+        assertNotEquals(new Rover(1, 1, "N"), new Rover(1, 1, "S"));
+        assertNotEquals(new Rover(1, 1, "N"), new Rover(1, 2, "N"));
+        assertNotEquals(new Rover(1, 1, "N"), new Rover(0, 1, "N"));
     }
 }
