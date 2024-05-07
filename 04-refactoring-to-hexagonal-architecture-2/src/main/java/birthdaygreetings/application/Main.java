@@ -13,7 +13,7 @@ public class Main {
     private static final int SMTP_PORT = 25;
 
     public static void main(String[] args) {
-        BirthdayService service = new BirthdayService(
+        BirthdayGreetingsService service = new BirthdayGreetingsService(
             new FileEmployeesRepository(EMPLOYEES_FILE_PATH));
         try {
             OurDate today = new OurDate(new Date());

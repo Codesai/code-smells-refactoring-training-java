@@ -13,11 +13,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.List;
 
-public class BirthdayService {
+public class BirthdayGreetingsService {
 
     private EmployeesRepository employeesRepository;
 
-    public BirthdayService(EmployeesRepository employeesRepository) {
+    public BirthdayGreetingsService(EmployeesRepository employeesRepository) {
         this.employeesRepository = employeesRepository;
     }
 
