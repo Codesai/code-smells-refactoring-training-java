@@ -1,12 +1,14 @@
 package test.birthdaygreetings.helpers;
 
 import birthdaygreetings.core.OurDate;
-import birthdaygreetings.infrastructure.repositories.DateRepresentation;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class OurDateFactory {
+    private static final String DATE_FORMAT = "yyyy/MM/dd";
+
     public static OurDate ourDateFromString(String dateAsString) throws ParseException {
-        return new DateRepresentation(dateAsString).toDate();
+        return new OurDate(new SimpleDateFormat(DATE_FORMAT).parse(dateAsString));
     }
 }
