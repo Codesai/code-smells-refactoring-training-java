@@ -12,10 +12,11 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BirthdayGreetingsService {
 
-    private EmployeesRepository employeesRepository;
+    private final EmployeesRepository employeesRepository;
 
     public BirthdayGreetingsService(EmployeesRepository employeesRepository) {
         this.employeesRepository = employeesRepository;
@@ -32,7 +33,10 @@ public class BirthdayGreetingsService {
     }
 
     private List<Employee> employeesHavingBirthday(OurDate today) {
-        return employeesRepository.whoseBirthdayIs(today);
+        List<Employee> allEmployees = employeesRepository.getAll();
+        return allEmployees.stream()
+                .filter(employee -> employee.isBirthday(today))
+                .collect(Collectors.toList());
     }
 
     private void send(List<GreetingMessage> messages, String smtpHost, int smtpPort, String sender) throws MessagingException {

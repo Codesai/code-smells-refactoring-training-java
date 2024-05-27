@@ -26,7 +26,7 @@ public class FileEmployeeRepositoryTest {
         EmployeesRepository employeesRepository = new FileEmployeesRepository("non-existing.file");
 
         final CannotReadEmployeesException exception = assertThrows(CannotReadEmployeesException.class,
-                () -> employeesRepository.whoseBirthdayIs(ANY_DATE));
+                employeesRepository::getAll);
 
         assertThat(exception.getMessage(), containsString("cannot loadFrom file"));
         assertThat(exception.getMessage(), containsString("non-existing.file"));
@@ -37,7 +37,7 @@ public class FileEmployeeRepositoryTest {
         EmployeesRepository employeesRepository = new FileEmployeesRepository("src/test/resources/wrong_data__wrong-date-format.csv");
 
         final CannotReadEmployeesException exception = assertThrows(CannotReadEmployeesException.class,
-                () -> employeesRepository.whoseBirthdayIs(ANY_DATE));
+                employeesRepository::getAll);
 
         assertThat(exception.getMessage(), containsString("Badly formatted employee birth date in"));
     }
