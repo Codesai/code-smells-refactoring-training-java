@@ -17,14 +17,14 @@ import static test.birthdaygreetings.helpers.OurDateFactory.ourDateFromString;
 public class BirthdayGreetingsServiceAcceptanceTest {
 
     private static final int SMTP_PORT = 25;
-    private String SMTP_HOST = "localhost";
+    private final String SMTP_HOST = "localhost";
     private static final String FROM = "sender@here.com";
     private List<Message> messagesSent;
     private BirthdayGreetingsService service;
     private static final String EMPLOYEES_FILE_PATH = "src/test/resources/employee_data.txt";
 
     @BeforeEach
-    public void setUp() throws Exception {
+    public void setUp() {
         messagesSent = new ArrayList<>();
 
         service = new BirthdayGreetingsService(new FileEmployeesRepository(EMPLOYEES_FILE_PATH)) {

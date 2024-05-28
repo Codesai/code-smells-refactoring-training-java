@@ -1,6 +1,8 @@
 package birthdaygreetings.core;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 import static java.util.stream.Collectors.toList;
 
@@ -34,5 +36,26 @@ public class GreetingMessage {
 
     public String to() {
         return this.to;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof GreetingMessage)) return false;
+        GreetingMessage that = (GreetingMessage) o;
+        return Objects.equals(to, that.to) && Objects.equals(greeting, that.greeting);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(to, greeting);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", GreetingMessage.class.getSimpleName() + "[", "]")
+                .add("to='" + to + "'")
+                .add("greeting=" + greeting)
+                .toString();
     }
 }
