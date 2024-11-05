@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static test.birthdaygreetings.helpers.OurDateFactory.ourDateFromString;
+import static test.birthdaygreetings.helpers.OurDateFactory.ourDate;
 
 public class BirthdayGreetingsServiceAcceptanceTest {
 
@@ -21,7 +21,7 @@ public class BirthdayGreetingsServiceAcceptanceTest {
     private static final String FROM = "sender@here.com";
     private List<Message> messagesSent;
     private BirthdayGreetingsService service;
-    private static final String EMPLOYEES_FILE_PATH = "src/test/resources/employee_data.txt";
+    private static final String EMPLOYEES_FILE_PATH = "src/test/resources/employee_data.csv";
 
     @BeforeEach
     public void setUp() {
@@ -37,7 +37,7 @@ public class BirthdayGreetingsServiceAcceptanceTest {
 
     @Test
     public void baseScenario() throws Exception {
-        OurDate today = ourDateFromString("2008/10/08");
+        OurDate today = ourDate("2008/10/08");
 
         service.sendGreetings(today, SMTP_HOST, SMTP_PORT, FROM);
 
@@ -51,7 +51,7 @@ public class BirthdayGreetingsServiceAcceptanceTest {
 
     @Test
     public void willNotSendEmailsWhenNobodysBirthday() throws Exception {
-        OurDate today = ourDateFromString("2008/01/01");
+        OurDate today = ourDate("2008/01/01");
 
         service.sendGreetings(today, SMTP_HOST, SMTP_PORT, FROM);
 
