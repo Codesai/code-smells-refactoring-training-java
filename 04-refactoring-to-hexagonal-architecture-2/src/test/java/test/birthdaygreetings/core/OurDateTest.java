@@ -12,7 +12,7 @@ public class OurDateTest {
         OurDate ourDate = ourDate("1789/01/24");
         OurDate sameDay = ourDate("2001/01/24");
         OurDate notSameDay = ourDate("1789/01/25");
-        OurDate notSameMonth = ourDate("1789/02/25");
+        OurDate notSameMonth = ourDate("1789/02/24");
 
         assertTrue(ourDate.isSameDay(sameDay), "same");
         assertFalse(ourDate.isSameDay(notSameDay), "not same day");
